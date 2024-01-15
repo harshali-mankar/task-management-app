@@ -1,0 +1,83 @@
+/* make the customizations */
+
+// $theme-colors: (
+//   "primary": #11a4de,
+// );
+
+// bootstrap SCSS
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  padding: 20px 15px;
+}
+fieldset {
+  /* viewport height to fit app in visible screen*/
+  min-height: calc(100dvh - 40px);
+}
+
+.task-management__title,
+.task-management__desc,
+.task-management__status,
+.task-management__actionBtns {
+  flex: 1;
+  padding: 0 5px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.task-management__actionBtns {
+  flex-basis: 200px;
+  flex-grow: initial;
+}
+.task-management__list {
+  padding: 5px;
+}
+
+.task-management__title {
+  padding-left: 15px;
+  position: sticky;
+  left: 0;
+}
+
+.task-management__list:last-child {
+  border: 0;
+}
+.task-management__actionBtns * {
+  cursor: pointer;
+}
+
+/* this CSS for the mobile screen*/
+@media only screen and (max-width: 767px) {
+  .task-management__list {
+    &Wrp {
+      overflow: auto;
+    }
+
+    &--Head {
+      .task-management__title {
+        background-color: var(--bs-tertiary-bg);
+      }
+    }
+  }
+  .task-management__desc {
+    flex-basis: 200px;
+    flex-shrink: 0;
+  }
+  .task-management__status {
+    flex-basis: 100px;
+    flex-shrink: 0;
+  }
+  .task-management__title {
+    flex-basis: 150px;
+    flex-shrink: 0;
+    background-color: #fff;
+    &.task-management__list--Head {
+      background-color: transparent;
+    }
+  }
+  .task-management__actionBtns {
+    flex-basis: 200px;
+    flex-shrink: 0;
+  }
+}
